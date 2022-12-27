@@ -1,0 +1,11 @@
+<launch>
+    <arg name="x" default="0" />
+    <arg name="y" default="0" />
+    <arg name="theta" default="0" />
+    
+    <node name="Cmd_pub_node" pkg="behnke_mor2" type="control_node" output="screen">
+        <param name="goal_x" type="double" value="$(arg x)" />
+        <param name="goal_y" type="double" value="$(arg y)" />
+        <param name="goal_theta" type="double" value="$(arg theta)" />
+    </node>
+</launch>

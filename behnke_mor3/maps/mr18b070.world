@@ -1,0 +1,181 @@
+<sdf version="1.6">
+<world name="default">
+<include>
+<uri>model://sun</uri>
+</include>
+<include>
+<uri>model://ground_plane</uri>
+</include>
+<model name="Maze">
+<pose>0 0 0 0 0 0 0</pose>
+<link name="link_0">
+<pose>1.1 1.175 0.3 0 0 0 0</pose>
+<inertial>
+<pose>0 0 0 0 0 0</pose>
+<mass>1</mass>
+</inertial>
+<collision name="collision_0">
+<geometry>
+<box>
+<size>0.1 2.15 0.6</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual_0">
+<geometry>
+<box>
+<size>0.1 2.15 0.6</size>
+</box>
+</geometry>
+</visual>
+</link>
+<link name="link_1">
+<pose>2.75 1.1700000000000002 0.3 0 0 0 0</pose>
+<inertial>
+<pose>0 0 0 0 0 0</pose>
+<mass>1</mass>
+</inertial>
+<collision name="collision_1">
+<geometry>
+<box>
+<size>1.3 0.1 0.6</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual_1">
+<geometry>
+<box>
+<size>1.3 0.1 0.6</size>
+</box>
+</geometry>
+</visual>
+</link>
+<link name="link_2">
+<pose>0.5750000000000001 3.1999999999999997 0.3 0 0 0 0</pose>
+<inertial>
+<pose>0 0 0 0 0 0</pose>
+<mass>1</mass>
+</inertial>
+<collision name="collision_2">
+<geometry>
+<box>
+<size>0.9500000000000001 0.1 0.6</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual_2">
+<geometry>
+<box>
+<size>0.9500000000000001 0.1 0.6</size>
+</box>
+</geometry>
+</visual>
+</link>
+<link name="link_3">
+<pose>2.32 3.1999999999999997 0.3 0 0 0 0</pose>
+<inertial>
+<pose>0 0 0 0 0 0</pose>
+<mass>1</mass>
+</inertial>
+<collision name="collision_3">
+<geometry>
+<box>
+<size>0.6 0.1 0.6</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual_3">
+<geometry>
+<box>
+<size>0.6 0.1 0.6</size>
+</box>
+</geometry>
+</visual>
+</link>
+<link name="link_4">
+<pose>0.05 2.25 0.3 0 0 0 0</pose>
+<inertial>
+<pose>0 0 0 0 0 0</pose>
+<mass>1</mass>
+</inertial>
+<collision name="collision_4">
+<geometry>
+<box>
+<size>0.1 4.5 0.6</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual_4">
+<geometry>
+<box>
+<size>0.1 4.5 0.6</size>
+</box>
+</geometry>
+</visual>
+</link>
+<link name="link_5">
+<pose>3.4499999999999997 2.25 0.3 0 0 0 0</pose>
+<inertial>
+<pose>0 0 0 0 0 0</pose>
+<mass>1</mass>
+</inertial>
+<collision name="collision_5">
+<geometry>
+<box>
+<size>0.1 4.5 0.6</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual_5">
+<geometry>
+<box>
+<size>0.1 4.5 0.6</size>
+</box>
+</geometry>
+</visual>
+</link>
+<link name="link_6">
+<pose>1.7500000000000002 0.05 0.3 0 0 0 0</pose>
+<inertial>
+<pose>0 0 0 0 0 0</pose>
+<mass>1</mass>
+</inertial>
+<collision name="collision_6">
+<geometry>
+<box>
+<size>3.3000000000000003 0.1 0.6</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual_6">
+<geometry>
+<box>
+<size>3.3000000000000003 0.1 0.6</size>
+</box>
+</geometry>
+</visual>
+</link>
+<link name="link_7">
+<pose>1.7500000000000002 4.45 0.3 0 0 0 0</pose>
+<inertial>
+<pose>0 0 0 0 0 0</pose>
+<mass>1</mass>
+</inertial>
+<collision name="collision_7">
+<geometry>
+<box>
+<size>3.3000000000000003 0.1 0.6</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual_7">
+<geometry>
+<box>
+<size>3.3000000000000003 0.1 0.6</size>
+</box>
+</geometry>
+</visual>
+</link>
+</model>
+</world>
+</sdf>

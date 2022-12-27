@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find behnke_mor2)/launch/myfile.launch" />
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find behnke_mor2)/cfg/viz.rviz" />
+    <node name="stick_pub_node" pkg="behnke_mor2" type="stick_pub_node" />
+</launch>

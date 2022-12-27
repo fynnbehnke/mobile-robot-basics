@@ -1,0 +1,61 @@
+Allgemein: 
+
+
+
+- AMCL zu verwenden passt, ist aber für diese kleine Übung etwas Overkill. Hier würde ein static Transform Publisher zwischen Odom und Map auch reichen,
+
+
+
+- Bitte die Knoten 0 anstatt 666 zurückgeben lassen. Return-Werte die ungleich null sind signalisieren dem Betriebssystem einen Fehlerzustand beim Beenden des Programms.
+
+
+
+- Abgesehen von den Rückgabewerten eine sehr saubere Lösung!
+
+
+
+A1 Kartographieren (max 2 Punkte)
+
+
+
+2/2
+
+
+
+---
+
+A2 ROS Navigation (max 2 Punkte)
+
+
+
+2/2
+
+
+
+---
+
+A3 Suchalgorithmus (max 8 Punkte)
+
+
+
+Suchalgorithmus funktioniert, Begründung ist gut. 
+
+Die Wände dicker zu machen ist eine gute Idee. 8/8
+
+
+
+A3 Pfadregelung (max 6 Punkte)
+
+
+
+Sowohl Pfadplanung, als auch Regelung sind sehr sauber, wodurch der Roboter schön, ohne zu wackeln fährt. 6/6
+
+
+
+---
+
+A4 Visualisierung (max 2 Punkte)
+
+
+
+2/2
