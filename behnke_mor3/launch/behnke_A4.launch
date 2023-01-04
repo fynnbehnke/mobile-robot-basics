@@ -13,7 +13,7 @@
       Im folgenden werden die Nodes zur visualisierung wie in A1 gestartet und rviz mit dem config file für A4.
     -->
     <include file="$(find gazebo_ros)launch/empty_world.launch">
-      <arg name="world_name" value="$(find behnke)/maps/mr18b070.world" />
+      <arg name="world_name" value="$(find behnke_mor3)/maps/mr18b070.world" />
       <arg name="gui" value="false" />
       <arg name="use_sim_time" value="true" />
       <arg name="paused" value="false" />
@@ -23,7 +23,7 @@
     <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_burger -x 0.6 -y 0.6 -z 0 -Y 1.57 -param robot_description" />
     <include file="$(find turtlebot3_bringup)/launch/turtlebot3_remote.launch"/>
 
-    <node pkg="map_server" type="map_server" name="map_server" args="$(find behnke)/maps/behnke_map.yaml" />
+    <node pkg="map_server" type="map_server" name="map_server" args="$(find behnke_mor3)/maps/behnke_map.yaml" />
 
     <node pkg="amcl" type="amcl" name="amcl">
       <param name="min_particles"             value="500"/>
@@ -61,7 +61,7 @@
       <param name="base_frame_id"             value="base_footprint"/>
     </node>
 
-    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find behnke)/cfg/behnke_rviz_config_A4.rviz" />
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find behnke_mor3)/cfg/behnke_rviz_config_A4.rviz" />
 
     <!--
       Hier werden Move_Base und die eigenen Nodes gestartet. Das cmd_vel für move_base wird je nach Mode verändert um das fahren zu verhindern (Pfad wird trotzdem berechnet).
@@ -87,8 +87,8 @@
 
     <node pkg="rostopic" type="rostopic" name="rostopic" args="pub -r 1 /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: 'map'}, pose: {position: {x: 2.9, y: 3.9, z: 0.0}, orientation: {z: 0.38, w: 0.92}}}'" />
     
-    <node pkg="behnke" name="path_planning_breadth_search_node" type="behnke_path_planning_A3" output="screen" />
+    <node pkg="behnke_mor3" name="path_planning_breadth_search_node" type="behnke_path_planning_A3" output="screen" />
     
-    <node pkg="behnke" name="control_node" type="behnke_control_A3" output="screen" if="$(arg PP_Mode)" />
+    <node pkg="behnke_mor3" name="control_node" type="behnke_control_A3" output="screen" if="$(arg PP_Mode)" />
 
 </launch>

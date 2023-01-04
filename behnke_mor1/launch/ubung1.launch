@@ -3,11 +3,11 @@
     <arg name="modi" default="1" />
     <arg name="diff" default="5.0" />
 
-    <node type="odom_node" name="Odom_pub_node" pkg="behnke" output="screen">
+    <node type="odom_node" name="Odom_pub_node" pkg="behnke_mor1" output="screen">
         <param name="wheel_diff_percentage" type="double" value="$(arg diff)" />
         <param name="modi" type="int" value="$(arg modi)" />
     </node>
 
-    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find behnke)/cfg/visualization.rviz" />
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find behnke_mor1)/cfg/visualization.rviz" />
 
 </launch>

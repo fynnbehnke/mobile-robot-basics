@@ -1,5 +1,5 @@
 <?xml version ="1.0"?>
 <launch>
-    <node pkg="behnke" name="path_planning_breadth_search_node" type="behnke_path_planning_A3" output="screen" />
-    <node pkg="behnke" name="control_node" type="behnke_control_A3" output="screen" />
+    <node pkg="behnke_mor3" name="path_planning_breadth_search_node" type="behnke_path_planning_A3" output="screen" />
+    <node pkg="behnke_mor3" name="control_node" type="behnke_control_A3" output="screen" />
 </launch>

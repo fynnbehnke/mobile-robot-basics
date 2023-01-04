@@ -17,6 +17,7 @@ using namespace std;
 
 // Tolerance for Position
 #define TOLERANCE 0.05
+#define THTOLERANCE 0.005
 
 /*
 Posen zum Stange umfahren:
@@ -34,6 +35,9 @@ private:
     ros::NodeHandle nh;
     ros::Publisher cmd_pub;
     ros::Subscriber pose_sub;
+    double kp_ = 0.3;
+    double ka_ = 0.8;
+    double kb_ = -0.4;
 
 public:
     CtrlPubSub(){
@@ -73,9 +77,20 @@ public:
 
         double x_diff = goal_pose.x - curr_pose.x;
         double y_diff = goal_pose.y - curr_pose.y;
-
+        double theta_diff = goal_pose.theta - curr_pose.theta;
+ 
         double rho = sqrt((x_diff*x_diff) + (y_diff*y_diff));
         
+        if(rho < TOLERANCE){
+            kp_ = 0.0;
+            ka_ = 0.0;
+            kb_ = 0.3;
+        }else{
+            kp_ = 0.3;
+            ka_ = 0.5;
+            kb_ = 0.0;
+        }
+
         // calculation of alpha and limiting to [pi ; -pi]
         double alpha = -curr_pose.theta +atan2(y_diff, x_diff);
         if(alpha > M_PI){
@@ -85,7 +100,7 @@ public:
         }
 
         // calculation of beta and limiting to [pi ; -pi]
-        double beta = -curr_pose.theta -alpha +goal_pose.theta;
+        double beta = -curr_pose.theta +goal_pose.theta;
         if(beta > M_PI){
             beta = -2*M_PI + beta; 
         }else if(beta < -M_PI){
@@ -93,13 +108,13 @@ public:
         }
 
         // check if target linear speed is faster than turtlebot max linear speed
-        double v_target = K_P * rho;
+        double v_target = kp_ * rho;
         if(v_target > MAX_SPEED){
             v_target = MAX_SPEED;
         }
 
         // check if target angular speed is faster than turtlebot max angular speed
-        double w_target = K_A * alpha + K_B * beta;
+        double w_target = ka_ * alpha + kb_ * beta;
         if(w_target > MAX_SPEED_ANG){
             w_target = MAX_SPEED_ANG;
         }else if(w_target < -MAX_SPEED_ANG){
@@ -107,7 +122,7 @@ public:
         }
 	
 	    // built in tolerance to stop when close enough to goal position
-        if(rho > TOLERANCE){
+        if(rho > TOLERANCE || beta > THTOLERANCE){
             ctrl_cmd.linear.x = v_target;
             ctrl_cmd.linear.y = 0;
             ctrl_cmd.linear.z = 0;
@@ -139,5 +154,5 @@ int main(int argc, char** argv){
 
     ros::spin();
 
-    return 666; // Copyright by Fynn Behnke - mr18b070 😈
+    return 0; // Copyright by Fynn Behnke - mr18b070 😈
 }
